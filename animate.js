@@ -17,18 +17,18 @@ function animateType() {
   var typed = $("#kw").attr("value");
   var toBeType = str[typed.length];
   if(toBeType === undefined) {
-    animateClick();
+    animateMoveToButton();
     return ;
   }
   $("#kw").attr("value", typed + toBeType);
   requestAnimFrame(animateType);
 }
 function clickButton(){
-  $("form").attr("action", "http://www.baidu.com/s");
   location.hash = '#click=true' 
-  $("#su").addClass('s_btn_h').delay(300).click();
+  $("#su").addClass('s_btn_h').delay(300);
+  window.location.href = "http://www.baidu.com/s?wd=" + $('#kw').attr('value') + "&rsv_bp=0&rsv_spt=3";
 }
-function animateClick(){
+function animateMoveToButton(){
   var dest = $("#su").offset();
   $("#cursor").css("background", "url(mouse_arrow_windows_aero.png)");
   $("#cursor").animate({ left: dest.left + 45, top: dest.top + 16 }, 1000 , "linear", clickButton);
@@ -40,9 +40,12 @@ function typeStart(){
 }
 		
 window.onload = function(){
-  console.log(getHash('q'));
   if(getHash('q') === null) { 
-    if(location.hash === '#click=true' ) #('#after-ad').show();
+    if(location.hash === '#click=true' ) $('#after-ad').show();
+    $('#su').click(function() {
+      var url = location.protocol + '//' + location.host + '/#q=' + encodeURIComponent($('#kw').attr('value'));
+      $('#nv').html('请分享: ' + url );
+    });
   } else {
     var dest = $(".s_ipt_wr").offset();
     $("#cursor").css("background", "url(mouse_arrow_windows_aero.png)");
