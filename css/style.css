@@ -71,9 +71,14 @@ input
 	margin: 0 0 4px;
 	text-align: center;
 }
+#nv input
+{
+	width: 200px;
+	border: 1px solid black;
+}
 .s_ipt_wr
 {
-	background: url(i-1.0.0.png) no-repeat -304px 0;
+	background: url(/img/i-1.0.0.png) no-repeat -304px 0;
 	border: 1px solid #b6b6b6;
 	border-color: #9a9a9a #cdcdcd #cdcdcd #9a9a9a;
 	display: inline-block;
@@ -94,7 +99,7 @@ input
 }
 .s_btn
 {
-	background: #ddd url(i-1.0.0.png);
+	background: #ddd url(/img/i-1.0.0.png);
 	cursor: pointer;
 	font-size: 14px;
 	height: 32px;
@@ -107,7 +112,7 @@ input
 }
 .s_btn_wr
 {
-	background: url(i-1.0.0.png) no-repeat -202px 0;
+	background: url(/img/i-1.0.0.png) no-repeat -202px 0;
 	display: inline-block;
 	height: 34px;
 	position: relative;
