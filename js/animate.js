@@ -45,18 +45,36 @@ function typeStart(){
 }
 		
 window.onload = function(){
-  if(getHash('q') === null) { 
-    $('#nv').html('连这个都不知道？教他们百度吧！');
+  if(getHash('q') === null) {
+    $nv = $('#nv');
+    $nv.find('.welcome').show();
+
+    var $copyButton = $nv.find('.copy');
+    ZeroClipboard.config( { swfPath: 'js/ZeroClipboard.swf' } );
+    var client = new ZeroClipboard($copyButton);
+    client.on( 'ready', function(event) {
+      client.on( 'copy', function(event) {
+        event.clipboardData.setData('text/plain', $(event.target).data('clipboard-text'));
+      } );
+      client.on('aftercopy', function(){ $copyButton.text('重新复制')})
+    } );
+
+    client.on( 'error', function(event) {
+      console.log('fail to init zero')
+      ZeroClipboard.destroy();
+      $nv.find('.url').removeClass('hide')
+      $nv.find('.url').click(function(e){
+        $(this).select()
+      })
+      $nv.find('.copy').addClass('disabled');
+    });
     if(location.hash === '#click=true' ) $('#after-ad').show();
     $('#su').click(function() {
       var url = location.protocol + '//' + location.host + '/#q=' + encodeURIComponent($('#kw').attr('value'));
-      $('#nv').html('请分享: <input value="' + url + '" /> <a class="copy">复制链接</a>');
-      $('#nv a').zclip({
-        path: 'js/ZeroClipboard.swf',
-        copy: function(){return $('#nv input').val();},
-        setHandCursor: true,
-        afterCopy: function(){ $('.copy').text('重新复制')}
-      });
+      $copyButton.data('clipboard-text', url);
+      $nv.find('.url').val(url);
+      $nv.find('.welcome').hide();
+      $nv.find('.share').show();
     });
   } else {
     $('#nv').html('想知道“'+ getHash('q') + '”是什么？');
