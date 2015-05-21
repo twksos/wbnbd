@@ -9,6 +9,9 @@
         (function() {
             var hm = document.createElement("script");
             hm.src = "//hm.baidu.com/hm.js?f6b1183b2b2fe89a44597c9b043ab626";
+            if(window.location.hash!=null){
+                _hmt.push(['_trackEvent', 'search', 'search', 'keyword', window.location.hash]);
+            }
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
