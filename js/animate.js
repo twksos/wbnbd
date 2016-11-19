@@ -10,25 +10,25 @@ window.requestAnimFrame = (function (callback) {
 })();
 
 function animateStart() {
-    window.setTimeout(animateType, 1000);
+    window.setTimeout(animateType, 300);
 }
 function animateType() {
     $('#nv').html('只要输入“' + getHash('q') + '”');
-    var str = getHash('q')
-    var typed = $("#kw").attr("value");
+    var str = getHash('q');
+    var typed = $("#kw").val();
     var toBeType = str[typed.length];
     if (toBeType === undefined) {
         animateMoveToButton();
         return;
     }
     $("#kw").attr("value", typed + toBeType);
-    requestAnimFrame(animateType);
+    animateStart();
 }
 function redirect() {
     window.location.href = "http://www.baidu.com/s?wd=" + $('#kw').attr('value') + "&rsv_bp=0&rsv_spt=3";
 }
 function clickButton() {
-    location.hash = '#click=true'
+    location.hash = '#click=true';
     $('#nv').html('再按下这里，简单吧。');
     $("#su").addClass('s_btn_h');
     window.setTimeout(redirect, 1000);
