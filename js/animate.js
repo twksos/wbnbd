@@ -49,30 +49,20 @@ window.onload = function(){
     $nv = $('#nv');
     $nv.find('.welcome').show();
 
-    var $copyButton = $nv.find('.copy');
-    ZeroClipboard.config( { swfPath: 'js/ZeroClipboard.swf' } );
-    var client = new ZeroClipboard($copyButton);
-    client.on( 'ready', function(event) {
-      client.on( 'copy', function(event) {
-        event.clipboardData.setData('text/plain', $(event.target).data('clipboard-text'));
-      } );
-      client.on('aftercopy', function(){ $copyButton.text('重新复制')})
-    } );
+var clipboard = new Clipboard('#copy');
 
-    client.on( 'error', function(event) {
-      console.log('fail to init zero')
-      ZeroClipboard.destroy();
-      $nv.find('.url').removeClass('hide')
-      $nv.find('.url').click(function(e){
-        $(this).select()
-      })
-      $nv.find('.copy').addClass('disabled');
-    });
+clipboard.on('success', function(e) {
+  console.log(e);
+  console.log('success');
+});
+
+clipboard.on('error', function(e) {
+  console.log('error')
+});
     if(location.hash === '#click=true' ) $('#after-ad').show();
     $('#su').click(function() {
       var url = location.protocol + '//' + location.host + '/#q=' + encodeURIComponent($('#kw').attr('value'));
-      $copyButton.data('clipboard-text', url);
-      $nv.find('.url').val(url);
+      $nv.find('#generated-url').val(url);
       $nv.find('.welcome').hide();
       $nv.find('.share').show();
     });
@@ -88,4 +78,32 @@ function getHash(name) {
   var hash = location.hash.match(RegExp("[#|&]"+name+'=(.+?)(&|$)'));
   if(hash) return decodeURIComponent(hash[1]);
   else return null;
+}
+
+function initGA(){
+    window._gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32754844-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+}
+
+function initBDTJ() {
+    window._hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?f6b1183b2b2fe89a44597c9b043ab626";
+        if(window.location.hash!=null){
+            _hmt.push(['_trackEvent', 'search', 'search', 'keyword', window.location.hash]);
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 }

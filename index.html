@@ -4,18 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>我帮你百度</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?f6b1183b2b2fe89a44597c9b043ab626";
-            if(window.location.hash!=null){
-                _hmt.push(['_trackEvent', 'search', 'search', 'keyword', window.location.hash]);
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 </head>
 <body screen_capture_injected="true">
 <div id="u"></div>
@@ -30,7 +18,8 @@
         <div class="welcome hide">连这个都不知道？教他们百度吧！</div>
 
         <div class="share hide">
-            请<a class="copy" data-clipboard-target="clipboard_text">复制链接</a>并分享<input type="text" readonly class="url hide" />
+            请<a id="copy" data-clipboard-action="copy" data-clipboard-target="#generated-url">复制链接</a>并分享
+            <input id="generated-url" type="text" readonly class="hide" />
         </div>
     </div>
     <div id="fm">
@@ -46,21 +35,7 @@
     此处应有广告
 </div>
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="js/ZeroClipboard.min.js"></script>
+<script type="text/javascript" src="node_modules/clipboard/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="js/animate.js"></script>
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-32754844-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-</script>
 </body>
 </html>
