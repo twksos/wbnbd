@@ -13,10 +13,7 @@
         </div>
     </div>
     <div id="fm">
-        <span class="bg s_ipt_wr">
-            <input type="text" name="wd" id="kw" maxlength="100" class="s_ipt" autocomplete="off" title="keywords"/>
-        </span>
-        <input type="hidden" name="rsv_bp" value="0"/><input type="hidden" name="rsv_spt" value="3"/>
+        <SearchInput></SearchInput>
         <SearchButton></SearchButton>
     </div>
     <div id="cursor"></div>
@@ -97,10 +94,12 @@
 
 <script>
     import SearchButton from './SearchButton.html';
+    import SearchInput from './SearchInput.html';
 
     export default {
         components: {
-            SearchButton
+            SearchButton,
+            SearchInput
         }
     };
 </script>
