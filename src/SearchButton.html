@@ -1,0 +1,52 @@
+<span class="s_btn_wr">
+    <input type="button" value="百度一下" id="su" class="{{className}}"
+           on:mouseenter="set({className: 's_btn btnhover'})"
+           on:mousedown="set({className: 's_btn s_btn_h'})"
+           on:mouseout="set({className: 's_btn'})"/>
+</span>
+
+<style>
+    .s_btn {
+        width: 100px;
+        height: 36px;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 1px;
+        background: #3385ff;
+        border-bottom: 1px solid #2d78f4;
+        outline: medium;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
+
+    .s_btn.btnhover {
+        background: #317ef3;
+        border-bottom: 1px solid #2868c8;
+        box-shadow: 1px 1px 1px #ccc;
+    }
+
+    .s_btn.s_btn_h {
+        background: #3075dc;
+        box-shadow: inset 1px 1px 5px #2964bb;
+        -webkit-box-shadow: inset 1px 1px 5px #2964bb;
+        -moz-box-shadow: inset 1px 1px 5px #2964bb;
+    }
+
+    .s_btn_wr {
+        width: auto;
+        height: auto;
+        border-bottom: 1px solid transparent;
+        display: inline-block;
+        background-position: -120px -48px;
+        z-index: 0;
+        vertical-align: top;
+    }
+</style>
+
+<script>
+    export default {
+        data() {
+            return {className: 's_btn'}
+        }
+    };
+</script>

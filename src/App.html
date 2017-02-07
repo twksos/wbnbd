@@ -1,0 +1,106 @@
+<div id="m">
+    <p id="lg">
+        <span class='wbn'>我帮你</span>
+        <img src="img/baidu_sylogo1.gif" width="270" height="129" alt='百度'/>
+    </p>
+
+    <div id="nv">
+        <div class="welcome hide">连这个都不知道？教他们百度吧！</div>
+
+        <div class="share hide">
+            请<a id="copy" data-clipboard-action="copy" data-clipboard-target="#generated-url">复制链接</a>并分享
+            <input id="generated-url" type="text" readonly class="hide"/>
+        </div>
+    </div>
+    <div id="fm">
+        <span class="bg s_ipt_wr">
+            <input type="text" name="wd" id="kw" maxlength="100" class="s_ipt" autocomplete="off" title="keywords"/>
+        </span>
+        <input type="hidden" name="rsv_bp" value="0"/><input type="hidden" name="rsv_spt" value="3"/>
+        <SearchButton></SearchButton>
+    </div>
+    <div id="cursor"></div>
+</div>
+
+<style>
+    #m {
+        width: 680px;
+        margin: 0 auto;
+    }
+
+    #b {
+        margin-top: 120px;
+    }
+
+    #fm {
+        padding-bottom: 30px;
+        padding-left: 90px;
+        text-align: left;
+    }
+
+    input {
+        border: 0;
+        padding: 0;
+    }
+
+    #nv {
+        font-size: 14px;
+        height: 19px;
+        margin: 0 0 4px;
+        text-align: center;
+    }
+
+    #nv input {
+        width: 100px;
+        border: 1px solid black;
+    }
+
+    .s_ipt_wr {
+        border: 1px solid #b6b6b6;
+        border-color: #7b7b7b #b6b6b6 #b6b6b6 #7b7b7b;
+        background: #fff;
+        display: inline-block;
+        vertical-align: top;
+        width: 539px;
+        margin-right: 0;
+        border-right-width: 0;
+        border-color: #b8b8b8 transparent #ccc #b8b8b8;
+        overflow: hidden;
+    }
+
+    .s_ipt {
+        background: #fff;
+        font: 16px/22px arial;
+        height: 22px;
+        margin: 5px 0 0 7px;
+        outline: none;
+        webkit-appearance: none;
+        width: 405px;
+    }
+
+    #lg {
+        text-align: center
+    }
+
+    #lg img {
+        margin-bottom: 3px;
+        vertical-align: top;
+    }
+
+    .wbn {
+        font-size: 32px;
+        text-align: right;
+        line-height: 115px;
+        vertical-align: bottom;
+    }
+</style>
+
+<script>
+    import SearchButton from './SearchButton.html';
+
+    export default {
+        components: {
+            SearchButton
+        }
+    };
+</script>
