@@ -1,8 +1,8 @@
 <span class="s_btn_wr">
-    <input type="button" value="百度一下" id="su" class="{{className}}"
-           on:mouseenter="set({className: 's_btn btnhover'})"
-           on:mousedown="set({className: 's_btn s_btn_h'})"
-           on:mouseout="set({className: 's_btn'})"/>
+    <input type="button" value="百度一下" id="su" class="s_btn {{className}}"
+           on:mouseenter="set({className: 'btnhover'})"
+           on:mousedown="set({className: 's_btn_h'})"
+           on:mouseout="set({className: ''})"/>
 </span>
 
 <style>
@@ -46,7 +46,7 @@
 <script>
     export default {
         data() {
-            return {className: 's_btn'}
+            return {className: ''}
         }
     };
 </script>
