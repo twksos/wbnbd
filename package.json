@@ -4,7 +4,7 @@
   "description": "baidu for people",
   "main": "index.js",
   "scripts": {
-    "copyfiles": "cp index.html dist/index.html && cp -r img dist/img",
+    "copyfiles": "cp index.html dist/index.html && cp -r img dist/img && cp ./node_modules/clipboard/dist/clipboard.min.js dist/",
     "build": "npm run copyfiles && rollup -c",
     "build:min": "npm run copyfiles && rollup -c --environment production",
     "dev": "npm run copyfiles && rollup -c -w",
@@ -40,6 +40,7 @@
     "surge": "^0.18.0"
   },
   "dependencies": {
-    "clipboard": "^1.5.16"
+    "clipboard": "^1.5.16",
+    "velocity-animate": "^1.4.3"
   }
 }
