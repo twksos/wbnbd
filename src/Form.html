@@ -1,0 +1,29 @@
+<div id="fm">
+    <SearchInput ref:input/><SearchButton ref:button/>
+</div>
+
+<style>
+    #fm {
+        margin: 22px auto 0;
+        width: 641px;
+        text-align: left;
+        z-index: 100;
+    }
+</style>
+
+<script>
+    import SearchButton from './SearchButton.html';
+    import SearchInput from './SearchInput.html';
+
+    export default {
+        onrender() {
+            const input = this.ref.input;
+            const button = this.ref.button;
+        },
+
+        components: {
+            SearchButton,
+            SearchInput,
+        }
+    };
+</script>

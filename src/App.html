@@ -13,9 +13,7 @@
     <Logo/>
 
     <Nav/>
-    <div id="fm">
-        <SearchInput/><SearchButton/>
-    </div>
+    <Form />
     <div id="cursor"></div>
 </div>
 
@@ -53,15 +51,26 @@
 <script>
     import Logo from './Logo.html';
     import Nav from './Nav.html';
-    import SearchButton from './SearchButton.html';
-    import SearchInput from './SearchInput.html';
+    import Form from './Form.html';
 
     export default {
+        onrender() {
+            var cb = new Clipboard('#copy');
+
+            cb.on('success', function (e) {
+                console.log(e);
+                console.log('success');
+            });
+
+            cb.on('error', function (e) {
+                console.log('error')
+            });
+        },
+
         components: {
             Logo,
             Nav,
-            SearchButton,
-            SearchInput,
+            Form,
         }
     };
 </script>
