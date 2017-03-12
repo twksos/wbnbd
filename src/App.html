@@ -13,6 +13,18 @@
         padding: 0;
     }
 
+    * {
+        font-family: 'Helvetica', 'Arial';
+    }
+
+    #cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 17px;
+        height: 23px;
+        background: none;
+    }
 </style>
 
 <script>
@@ -21,11 +33,13 @@
     import Form from './Form.html';
     import Share from './Share.html';
     import {initBDTJ, initGA} from './js/analyser';
+    import {Searcher} from './js/Searcher';
 
     export default {
         oncreate() {
             initBDTJ();
             initGA();
+            Searcher.getInstance().play();
         },
 
         components: {

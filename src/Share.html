@@ -1,10 +1,10 @@
 <div id="share">
     <div class="dialog">
         <div>
-            <input id="generated-url" type="text" readonly class="hide"/>
+            <input id="generated-url" type="text" readonly/>
             <a id="copy" on:click="copy()">复制</a>
         </div>
-        <div>
+        <div id="share-hint">
             请复制链接并分享~
         </div>
     </div>
@@ -19,15 +19,26 @@
     }
 
     #share .dialog {
-        height: 200px;
-        width: 400px;
-        margin: 100px auto 0;
+        padding: 30px;
+        height: 150px;
+        margin: 100px;
         background-color: white;
         border: 1px solid lightgrey;
         text-align: center;
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
+    }
+
+    #generated-url {
+        border: 1px solid lightgrey;
+        height: 20px;
+        padding: 0 4px;
+    }
+
+    #share-hint {
+        margin-top: 20px;
+        color: grey;
     }
 </style>
 
