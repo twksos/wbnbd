@@ -4,7 +4,7 @@
   "description": "baidu for people",
   "main": "index.js",
   "scripts": {
-    "copyfiles": "cp index.html dist/index.html && cp -r img dist/img",
+    "copyfiles": "cp index.html dist/index.html && cp -r img/ dist/img/",
     "build": "npm run copyfiles && rollup -c",
     "build:min": "npm run copyfiles && rollup -c --environment production",
     "dev": "npm run copyfiles && rollup -c -w",
