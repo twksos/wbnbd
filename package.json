@@ -40,7 +40,7 @@
     "surge": "^0.18.0"
   },
   "dependencies": {
-    "clipboard": "^1.5.16",
+    "copy-to-clipboard": "^3.0.5",
     "velocity-animate": "^1.4.3"
   }
 }
