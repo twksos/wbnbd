@@ -1,4 +1,4 @@
-function initGA() {
+export function initGA() {
     window._gaq = window._gaq || [];
     window._gaq.push(['_setAccount', 'UA-32754844-2']);
     window._gaq.push(['_trackPageview']);
@@ -13,7 +13,7 @@ function initGA() {
     })();
 }
 
-function initBDTJ() {
+export function initBDTJ() {
     window._hmt = window._hmt || [];
     (function () {
         var hm = document.createElement("script");
