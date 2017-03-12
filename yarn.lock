@@ -349,6 +349,12 @@ magic-string@^0.14.0:
   dependencies:
     vlq "^0.2.1"
 
+magic-string@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.19.0.tgz#198948217254e3e0b93080e01146b7c73b2a06b2"
+  dependencies:
+    vlq "^0.2.1"
+
 mime-types@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-1.0.2.tgz#995ae1392ab8affcbfcb2641dd054e943c0d5dce"
@@ -515,12 +521,12 @@ rollup-plugin-buble@^0.14.0:
     buble "^0.14.0"
     rollup-pluginutils "^1.5.0"
 
-rollup-plugin-svelte@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-svelte/-/rollup-plugin-svelte-0.3.0.tgz#722211a6de3bb46004a8182701ee48da9d29c336"
+rollup-plugin-svelte@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.npmjs.org/rollup-plugin-svelte/-/rollup-plugin-svelte-1.6.0.tgz#9dd3a13f19f2832313170b0bc61d02ceb08da5a0"
   dependencies:
     rollup-pluginutils "^1.5.2"
-    svelte "^0.3.0"
+    svelte "^1.6.0"
 
 rollup-plugin-uglify@^1.0.1:
   version "1.0.1"
@@ -615,9 +621,11 @@ surge@^0.18.0:
     tar.gz "0.1.1"
     url-parse-as-address "1.0.0"
 
-svelte@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-0.3.0.tgz#9532978f799e2719e9e4046d74e05789ffe6d084"
+svelte@^1.6.0:
+  version "1.11.2"
+  resolved "https://registry.npmjs.org/svelte/-/svelte-1.11.2.tgz#6920d20ec528dc018dd136820faeeee4865af41d"
+  dependencies:
+    magic-string "^0.19.0"
 
 tar.gz@0.1.1:
   version "0.1.1"
