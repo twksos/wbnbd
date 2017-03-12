@@ -2,7 +2,7 @@
     <div class="dialog">
         <div>
             <input id="generated-url" type="text" readonly class="hide"/>
-            <a id="copy" data-clipboard-action="copy" data-clipboard-target="#generated-url">复制</a>
+            <a id="copy" on:click="copy()">复制</a>
         </div>
         <div>
             请复制链接并分享~
@@ -25,16 +25,19 @@
         background-color: white;
         border: 1px solid lightgrey;
         text-align: center;
-        -webkit-border-radius:8px;
-        -moz-border-radius:8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
         border-radius: 8px;
     }
 </style>
 
 <script>
+    import {Searcher} from './js/Searcher';
     export default {
-        oncreate() {
-
+        methods: {
+            copy: function () {
+                Searcher.getInstance().copyText();
+            }
         }
     };
 </script>
