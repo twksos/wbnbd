@@ -20,23 +20,12 @@
     import Nav from './Nav.html';
     import Form from './Form.html';
     import Share from './Share.html';
-    import {initBDTJ, initGA} from './analyser';
+    import {initBDTJ, initGA} from './js/analyser';
 
     export default {
         oncreate() {
             initBDTJ();
             initGA();
-
-            var cb = new Clipboard('#copy');
-
-            cb.on('success', function (e) {
-                console.log(e);
-                console.log('success');
-            });
-
-            cb.on('error', function (e) {
-                console.log('error')
-            });
         },
 
         components: {
