@@ -1,5 +1,5 @@
 <div id="fm">
-    <SearchInput ref:input/><SearchButton ref:button/>
+    <SearchInput/><SearchButton/>
 </div>
 
 <style>
@@ -16,11 +16,6 @@
     import SearchInput from './SearchInput.html';
 
     export default {
-        oncreate() {
-//            const input = this.ref.input;
-//            const button = this.ref.button;
-        },
-
         components: {
             SearchButton,
             SearchInput,
