@@ -28,7 +28,8 @@ export class Searcher {
         if (hash === '#ad') return;
         this.playing = true;
 
-        const text = search.slice(3);
+        const text = decodeURIComponent(search.slice(3));
+        console.log('text', text);
         const navTextDOM = document.querySelector('#nv .welcome');
         const cursorDOM = document.querySelector('#cursor');
         const inputDOM = document.querySelector('#kw');
