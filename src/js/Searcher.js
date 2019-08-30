@@ -8,7 +8,7 @@ export class Searcher {
 
     copyText() {
         if (this.playing) return;
-        copy('http://wbnbd.com/?q=' + this.text);
+        copy('http://wbnbd.com/?q=' + encodeURIComponent(this.text));
         const shareHintDOM = document.querySelector('#share-hint');
         shareHintDOM.innerHTML = '已复制';
     }
@@ -17,7 +17,7 @@ export class Searcher {
         if (this.playing) return;
         const shareDOM = document.querySelector('#share');
         const shareInputDOM = document.querySelector('#generated-url');
-        shareInputDOM.value = 'http://wbnbd.com/?q=' + this.text;
+        shareInputDOM.value = 'http://wbnbd.com/?q=' + encodeURIComponent(this.text);
         Velocity(shareDOM, {opacity: 1}, {display: 'block'});
     }
 
