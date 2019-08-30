@@ -1,9 +1,9 @@
 <span class="s_btn_wr">
     <input type="button" value="百度一下" id="su" class="s_btn {{className}}"
-           on:click="search()"
-           on:mouseenter="set({className: 'btnhover'})"
-           on:mousedown="set({className: 's_btn_h'})"
-           on:mouseout="set({className: ''})"/>
+           on:click={search}
+           on:mouseenter={mouseenter}
+           on:mousedown={mousedown}
+           on:mouseout={mouseout}/>
 </span>
 
 <style>
@@ -47,14 +47,18 @@
 <script>
     import {Searcher} from './js/Searcher';
 
-    export default {
-        data() {
-            return {className: ''}
-        },
-        methods: {
-            search: function () {
-                Searcher.getInstance().search();
-            }
-        }
-    };
+    let className = '';
+    function search() {
+      Searcher.getInstance().search();
+    }
+
+    function mouseenter() {
+        className = 'btnhover';
+    }
+    function mousedown() {
+        className = 's_btn_h';
+    }
+    function mouseout() {
+      className = '';
+    }
 </script>

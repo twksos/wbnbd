@@ -1,12 +1,18 @@
+<script>
+import {Searcher} from './js/Searcher';
+
+function copy() {
+  Searcher.getInstance().copyText();
+}
+</script>
+
 <div id="share">
     <div class="dialog">
-        <div>
-            <input id="generated-url" type="text" readonly/>
-            <a id="copy" on:click="copy()">复制</a>
-        </div>
         <div id="share-hint">
             请复制链接并分享~
         </div>
+        <input id="generated-url" type="text" readonly/>
+        <a id="copy" on:click={copy}>复制</a>
     </div>
 </div>
 
@@ -22,6 +28,9 @@
         padding: 30px;
         height: 150px;
         margin: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: white;
         border: 1px solid lightgrey;
         text-align: center;
@@ -32,23 +41,24 @@
 
     #generated-url {
         border: 1px solid lightgrey;
+        width: 300px;
         height: 20px;
         padding: 0 4px;
+        margin: 20px 0;
     }
 
     #share-hint {
-        margin-top: 20px;
         color: grey;
     }
-</style>
 
-<script>
-    import {Searcher} from './js/Searcher';
-    export default {
-        methods: {
-            copy: function () {
-                Searcher.getInstance().copyText();
-            }
-        }
-    };
-</script>
+    #copy {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        width: 80px;
+        border-radius: 8px;
+        border: 1px solid lightgrey;
+    }
+</style>

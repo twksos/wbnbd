@@ -35,18 +35,10 @@
     import {initBDTJ, initGA} from './js/analyser';
     import {Searcher} from './js/Searcher';
 
-    export default {
-        oncreate() {
-            initBDTJ();
-            initGA();
-            Searcher.getInstance().play();
-        },
-
-        components: {
-            Form,
-            Logo,
-            Nav,
-            Share,
-        }
-    };
+    import { onMount } from 'svelte';
+    onMount(()=>{
+      initBDTJ();
+      initGA();
+      Searcher.getInstance().play();
+    });
 </script>

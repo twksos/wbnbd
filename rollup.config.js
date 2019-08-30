@@ -1,16 +1,37 @@
 import svelte from 'rollup-plugin-svelte';
-import buble from 'rollup-plugin-buble';
-import uglify from 'rollup-plugin-uglify';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import livereload from 'rollup-plugin-livereload';
+import {terser} from 'rollup-plugin-terser';
 
-const plugins = [svelte(), nodeResolve(), commonjs()];
-if (process.env.production) plugins.push(buble(), uglify());
+const production = !process.env.ROLLUP_WATCH;
+
+const plugins = [
+  svelte(),
+  nodeResolve({
+    browser: true,
+    dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
+  }),
+  commonjs(),
+  // Watch the `public` directory and refresh the
+  // browser on changes when not in production
+  !production && livereload('public'),
+
+  // If we're building for production (npm run build
+  // instead of npm run dev), minify
+  production && terser()
+];
 
 export default {
-    entry: 'src/app.js',
-    dest: 'dist/bundle.js',
+  input: 'src/app.js',
+  output: {
+    sourcemap: true,
     format: 'iife',
-    plugins,
-    sourceMap: true
+    name: 'app',
+    file: 'public/bundle.js'
+  },
+  plugins,
+  watch: {
+    clearScreen: false
+  }
 };

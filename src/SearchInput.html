@@ -1,10 +1,11 @@
 <span class="s_ipt_wr {{focusClassName}} {{hoverClassName}}"
-      on:mouseenter="set({hoverClassName: 'ipthover'})"
-      on:mouseout="set({hoverClassName: ''})">
+      on:mouseenter={mouseenter}
+      on:mouseout={mouseout}>
     <input id="kw" name="wd" class="s_ipt" maxlength="255" autocomplete="off"
-           bind:value='text'
-           on:focus="set({focusClassName: 'iptfocus'})"
-           on:blur="set({focusClassName: ''})">
+           bind:value={text}
+           on:change={change}
+           on:focus={focus}
+           on:blur={blur}>
 </span>
 
 <style>
@@ -46,18 +47,25 @@
 
 <script>
     import {Searcher} from './js/Searcher';
-    export default {
-        oncreate() {
-            this.observe('text', function (text) {
-                Searcher.getInstance().text = text
-            })
-        },
-        data() {
-            return {
-                text: '',
-                focusClassName: '',
-                hoverClassName: ''
-            }
-        }
+
+    let text = '';
+    let focusClassName = '';
+    let hoverClassName = '';
+
+    function change() {
+      Searcher.getInstance().text = text
+    }
+    function focus() {
+      focusClassName = 'iptfocus';
+    }
+    function blur() {
+      focusClassName = '';
+    }
+
+    function mouseenter() {
+      hoverClassName = 'ipthover';
+    }
+    function mouseout() {
+      hoverClassName = '';
     }
 </script>

@@ -1,5 +1,10 @@
 import App from './App.html';
 
-window.app = new App({
-    target: document.querySelector( 'app' )
+const app = new App({
+  target: document.querySelector('app'),
+  props: {
+    name: 'world'
+  }
 });
+
+export default app;
