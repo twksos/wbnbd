@@ -49,4 +49,4 @@ crashlytics-build.properties
 
 node_modules
 public/bundle.js
-public/bundle.map
+public/bundle.js.map
