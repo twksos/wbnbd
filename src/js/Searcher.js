@@ -15,7 +15,10 @@ export class Searcher {
 
     search() {
         if (this.playing) return;
-        if (!this.text) alert("(╯‵□′)╯︵┻━┻");
+        if (!this.text) {
+            alert("(╯‵□′)╯︵┻━┻");
+            return;
+        }
         const shareDOM = document.querySelector('#share');
         const shareInputDOM = document.querySelector('#generated-url');
         shareInputDOM.value = 'http://wbnbd.com/?q=' + encodeURIComponent(this.text);
