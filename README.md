@@ -1,4 +1,4 @@
-![CI](https://github.com/twksos/wbnbd/workflows/Node.js%20CI/badge.svg)
+![Build and Upload](https://github.com/twksos/wbnbd/workflows/Node.js%20CI/badge.svg)
 
 # 我帮你百度 wbnbd.com
 
